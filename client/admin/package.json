@@ -1,21 +1,14 @@
 {
-  "name": "react_discovery",
+  "name": "admin",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "create": "webpack",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open --mode development"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
-  "keywords": [],
-  "author": "",
+  "author": "yoon",
   "license": "ISC",
   "dependencies": {
     "react": "^16.5.2",
