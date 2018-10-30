@@ -11,6 +11,13 @@
     cursor: pointer;
     text-align: center;
     border-bottom: 1px solid #efefef;
+
+    &.is-active {
+      background-color: #1B8BF9;
+      button {
+        color: white;
+      }
+    }
   
     & > button {
       width: 100%;

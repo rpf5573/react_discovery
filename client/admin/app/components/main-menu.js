@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
+import MainMenuItem from './main-menu-item';
 
 export default class MainMenu extends Component {
 
@@ -25,21 +26,10 @@ export default class MainMenu extends Component {
     var tagList = [];
     _.forEach(menuList, (menuItem) => {
       tagList.push(
-        <li className={"menu-item menu-item--" + menuItem.className} key={menuItem.className}>
-          <button>
-            {menuItem.label}
-            <div className="ripple js-ripple">
-              <span className="ripple__circle"></span>
-            </div>
-          </button>
-        </li>
+        <MainMenuItem className={menuItem.className} label={menuItem.label} key={menuItem.className}></MainMenuItem>
       );
     });
     return tagList;
-  }
-
-  ripple() {
-    
   }
 
   render() {

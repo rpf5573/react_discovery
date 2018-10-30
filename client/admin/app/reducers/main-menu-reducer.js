@@ -1,4 +1,4 @@
-import { CLICK_MENU_ITEM } from '../actions/types';
+import { MENU_ITEM_TOGGLE_ACTIVE } from '../actions/types';
 
 const initialState = {
   items: [],
@@ -7,6 +7,11 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch( action.type ) {
+    case MENU_ITEM_TOGGLE_ACTIVE :
+      return Object.assign({}, state, {
+        isActive: true,
+        btnKey: action.payload
+      });
     default: 
       return state;
   }
