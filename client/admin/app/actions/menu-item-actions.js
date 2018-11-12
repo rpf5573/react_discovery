@@ -1,9 +1,15 @@
-import { MENU_ITEM_TOGGLE_ACTIVE } from '../actions/types';
+import { OPEN_MODAL, MAKE_ALL_INACTIVE } from '../actions/types';
 
-export const menuItemToggleActive = () => dispatch => {
-  console.log( 'menuItemToggleActive is called' );
+export const openModal = () => dispatch => {
   dispatch({
-    type: MENU_ITEM_TOGGLE_ACTIVE,
+    type: OPEN_MODAL,
     payload: null
   });
 };
+
+export const makeAllInActive = () => dispatch => {
+  dispatch({
+    type: MAKE_ALL_INACTIVE,
+    payload: null
+  });
+}

@@ -1,0 +1,144 @@
+.modal {
+  @include modifier( 'team_settings') {
+    .form-control[name='united_team_player_count'] {
+      width: auto;
+      max-width: 180px;
+    }
+  }
+  @include modifier( 'check') {
+    z-index: 1052;
+    @include element( 'message') {}
+  }
+  @include modifier( 'timer') {
+    @include element( 'deadline_setting') {
+      form {
+        margin: 0;
+      }
+    }
+    @include element( 'all_controll') {}
+    @include element( 'each_team_control') {
+      @include element( 'team') {}
+      @include element( 'control') {}
+      @include element( 'clock') {}
+    }
+  }
+  @include modifier( 'options') {
+    @include element( 'beacon') {
+      @include element( 'header') {}
+      @include element( 'body') {
+        @include element( 'beacon_list') {
+          @include element( 'row') {
+            &:hover #{&}#{__update},
+            &:hover #{&}#{__remove} {
+              opacity: 1.0;
+            }
+            @include element('data') {
+              &>span {
+                display: block;
+                min-width: 80px;
+              }
+              &>input {
+                display: none;
+                min-width: 80px;
+              }
+            }
+            @include element( 'update') {
+              transition: all 0.6s ease;
+              opacity: 0;
+            }
+            @include element( 'remove') {
+              transition: all 0.6s ease;
+              opacity: 0;
+            }
+            @include element( 'complete') {
+              display: none;
+            }
+            &.new {
+              span {
+                display: none;
+              }
+              input {
+                display: block;
+              }
+              .modal--options__beacon__body__beacon_list__row__data--post {
+                input {
+                  max-width: 60px;
+                }
+              }
+              .modal--options__beacon__body__beacon_list__row__update,
+              .modal--options__beacon__body__beacon_list__row__remove {
+                display: none;
+              }
+              .modal--options__beacon__body__beacon_list__row__complete {
+                display: block;
+              }
+            }
+            &.update {
+              span {
+                display: none;
+              }
+              input {
+                display: block;
+              }
+              .modal--options__beacon__body__beacon_list__row__data--post {
+                span {
+                  display: block;
+                }
+                input {
+                  display: none;
+                }
+              }
+              .modal--options__beacon__body__beacon_list__row__update,
+              .modal--options__beacon__body__beacon_list__row__remove {
+                display: none;
+              }
+              .modal--options__beacon__body__beacon_list__row__complete {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+    @include element( 'player_list') {
+      @include element( 'header') {}
+      @include element( 'body') {}
+    }
+    @include element( 'joker_info') {
+      @include element( 'header') {}
+      @include element( 'body') {
+        .input-group-addon {
+          width: 38px;
+        }
+      }
+    }
+  }
+  @include modifier( 'maps') {
+    #fileupload {
+      @include modifier( 'whole_map') {
+        input[name=delete] {
+          display: none;
+        }
+      }
+      @include modifier( 'assistant_map') {
+        input[name=delete] {
+          display: none;
+        }
+      }
+    }
+  }
+  @include modifier( 'result_page') {}
+  @include modifier( 'mapping_points') {
+    table {
+      th,
+      td {
+        text-align: center;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.modal-backdrop.show:nth-of-type(3) {
+  z-index: 1051 !important;
+}

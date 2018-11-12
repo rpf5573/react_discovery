@@ -1,4 +1,4 @@
-import { MENU_ITEM_TOGGLE_ACTIVE } from '../actions/types';
+import { OPEN_MODAL, MAKE_ALL_INACTIVE } from '../actions/types';
 
 const initialState = {
   items: [],
@@ -7,10 +7,12 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch( action.type ) {
-    case MENU_ITEM_TOGGLE_ACTIVE :
+    case OPEN_MODAL :
       return Object.assign({}, state, {
-        isActive: true,
-        btnKey: action.payload
+      });
+    case MAKE_ALL_INACTIVE :
+      return Object.assign({}, state, {
+        isActive: false
       });
     default: 
       return state;

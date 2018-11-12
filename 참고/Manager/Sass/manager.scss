@@ -1,0 +1,24 @@
+/*----------  Vendors  ----------*/
+@import 'vendors/bemify';
+@import 'vendors/font-awesome/scss/font-awesome';
+
+/*----------  Utils  ----------*/
+@import 'utils/variables';
+@import 'utils/functions';
+@import 'utils/mixins';
+@import 'utils/ripple';
+
+/*----------  Base  ----------*/
+@import 'base/reset';
+@import 'base/base';
+
+/*----------  Components  ----------*/
+@import 'components/button';
+@import 'components/modal';
+@import 'components/menu';
+@import 'components/float_btn';
+@import 'components/evaluate_uploaded_file';
+
+/*----------  Layout  ----------*/
+@import 'layout/sidebar';
+@import 'layout/main';

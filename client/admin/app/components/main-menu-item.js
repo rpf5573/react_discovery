@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import cn from 'classnames';
-import { MENU_ITEM_TOGGLE_ACTIVE } from '../actions/types';
-// import { menuItemToggleActive } from '../actions/menu-item-actions';
+import { OPEN_MODAL } from '../actions/types';
+import { openModal, makeAllInActive } from '../actions/menu-item-actions';
 import MainMenu from './main-menu';
 
 class MainMenuItem extends Component {
@@ -12,19 +12,26 @@ class MainMenuItem extends Component {
     this.state = {
       isActive: false
     }
-    
+
     this.onClickBtn = this.onClickBtn.bind(this);
+    this.toggleActive = this.toggleActive.bind(this);
   }
 
   onClickBtn(e) {
-    this.props.dispatch({
-      type: MENU_ITEM_TOGGLE_ACTIVE,
-      payload: this.props.className
+    this.props.makeAllInActive();
+    // this.props.openModal();
+    this.toggleActive();
+  }
+
+  toggleActive(e) {
+    this.setState({
+      isActive: !this.state.isActive
     });
   }
 
   render() {
-    let className = cn('menu-item', ('menu-item--'+this.props.className), { 'is-active' : this.props.isActive });
+    console.log( 'render', ' is called' );
+    let className = cn('menu-item', ('menu-item--'+this.props.className), { 'is-active' : this.state.isActive });
     return (
       <li className={className} key={this.props.className}>
         <button onClick={this.onClickBtn}>
@@ -38,14 +45,10 @@ class MainMenuItem extends Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  if ( state.btnKey == ownProps.className ) {
-    return {
-      isActive : state.isActive
-    };
-  }
-
-  return {};
+function mapStateToProps(state, action) {
+  console.log( 'state in mapStateToProps: ', state );
+  return { isActive : state.isActive };
 }
 
-export default connect(mapStateToProps, null)(MainMenuItem);
+
+export default connect(mapStateToProps, { openModal, makeAllInActive })(MainMenuItem);

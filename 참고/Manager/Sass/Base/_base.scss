@@ -1,0 +1,65 @@
+@for $i from 1 through 100 {
+  .w-#{$i} {
+    width: ($i * 1%) !important;
+  }
+}
+
+@for $i from 1 through 12 {
+  .fg-#{$i} {
+    flex-grow: $i;
+  }
+  .fs-#{$i} {
+    flex-shrink: $i;
+  }
+}
+
+.ps-r {
+  position: relative;
+}
+
+.ps-a {
+  position: absolute;
+}
+
+.ps-f {
+  position: fixed;
+}
+
+.ps-c {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.prototype {
+  display: none;
+}
+
+//Bootstrap .in -> .show로 바뀌었기 때문에 혼란이 조금 있음
+.fade.in {
+  transition: all 0.5s ease;
+  opacity: 1.0;
+}
+
+.dp-none {
+  display: none;
+}
+
+.modal-xl {
+  max-width: 1120px;
+}
+
+#page {
+  position: relative;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

@@ -1,0 +1,29 @@
+.c-button {
+  -webkit-appearance: none;
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 0;
+  vertical-align: middle;
+  overflow: visible;
+  color: black;
+  font: inherit;
+  font-size: 1em;
+  line-height: 20px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 1px;
+  background: transparent;
+  border: 0;
+  user-select: none;
+  //box-shadow: 2px 2px 0 0 darken(#434A54, 5%);
+  transition: all .4s ease;
+  &:hover,
+  &:focus {
+    outline: 0;
+    text-decoration: none;
+  }
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}

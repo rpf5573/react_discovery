@@ -1,0 +1,52 @@
+.warehouse {
+  .title {
+    font-size: 3em;
+  }
+  .beacon_list {
+    @include element( 'row') {
+      &:hover .beacon_list__row__update,
+      &:hover .beacon_list__row__remove {
+        opacity: 1.0;
+      }
+      @include element('data') {
+        &>span {
+          display: block;
+          min-width: 80px;
+        }
+        &>input {
+          display: none;
+          min-width: 80px;
+        }
+      }
+      @include element( 'update') {
+        transition: all 0.6s ease;
+        opacity: 0;
+      }
+      @include element( 'remove') {
+        transition: all 0.6s ease;
+        opacity: 0;
+      }
+      @include element( 'complete') {
+        display: none;
+      }
+      &.new,
+      &.update {
+        .beacon_list__row__data {
+          span {
+            display: none;
+          }
+          input {
+            display: block;
+          }
+        }
+        .beacon_list__row__update,
+        .beacon_list__row__remove {
+          display: none;
+        }
+        .beacon_list__row__complete {
+          display: block;
+        }
+      }
+    }
+  }
+}
