@@ -1,15 +1,22 @@
-import { OPEN_MODAL, MAKE_ALL_INACTIVE } from '../actions/types';
+import { OPEN_MODAL, TOGGLE_MENU_BTNS, CLOSE_MODAL } from '../actions/types';
 
-export const openModal = () => dispatch => {
+export const openModal = (activeModalClassName) => dispatch => {
   dispatch({
     type: OPEN_MODAL,
-    payload: null
+    payload: activeModalClassName
   });
 };
 
-export const makeAllInActive = () => dispatch => {
+export const toggleMenuBtns = (activeMenuBtnClassName) => dispatch => {
   dispatch({
-    type: MAKE_ALL_INACTIVE,
+    type: TOGGLE_MENU_BTNS,
+    payload: activeMenuBtnClassName
+  });
+}
+
+export const closeModal = () => dispatch => {
+  dispatch({
+    type: CLOSE_MODAL,
     payload: null
   });
 }

@@ -1,2 +1,3 @@
 export const OPEN_MODAL = 'OPEN_MODAL';
-export const MAKE_ALL_INACTIVE = 'MAKE_ALL_INACTIVE';
+export const TOGGLE_MENU_BTNS = 'TOGGLE_MENU_BTNS';
+export const CLOSE_MODAL = 'CLOSE_MODAL';

@@ -1,4 +1,4 @@
-import { OPEN_MODAL, MAKE_ALL_INACTIVE } from '../actions/types';
+import { OPEN_MODAL, TOGGLE_MENU_BTNS, CLOSE_MODAL } from '../actions/types';
 
 const initialState = {
   items: [],
@@ -9,10 +9,16 @@ export default function(state = initialState, action) {
   switch( action.type ) {
     case OPEN_MODAL :
       return Object.assign({}, state, {
+        activeModalClassName: action.payload
       });
-    case MAKE_ALL_INACTIVE :
+    case TOGGLE_MENU_BTNS :
       return Object.assign({}, state, {
-        isActive: false
+        activeMenuBtnClassName: action.payload
+      });
+    case CLOSE_MODAL:
+      return Object.assign({}, state, {
+        activeModalClassName: null,
+        activeMenuBtnClassName: null
       });
     default: 
       return state;
