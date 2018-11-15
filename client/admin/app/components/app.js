@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+// utils
+import 'whatwg-fetch';
+import _ from 'lodash';
 
-// redux
+// react & redux
+import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import store from '../store';
 
 // components
@@ -12,13 +15,35 @@ import MainBoard from './main-board';
 import Modals from './modals';
 
 // actions
-import actions from '../actions';
+import { updateInitialState } from '../actions/initial-state-actions';
 
 // css
 import 'bootstrap/dist/css/bootstrap.css';
 import '../scss/style.scss';
 
-export default class App extends Component {
+class App extends Component {
+
+  async fetchInitialSettings() {
+    let response = await fetch('/admin/state');
+    let json = await response.json();
+
+    var result = {};
+    _.forEach(json, function(row){
+      let key = row['meta_key'];
+      let value = row['meta_value'];
+      Object.assign(result, {key: value});
+    });
+
+    console.log( 'result : ', result );
+
+    return result;
+  }
+
+  componentDidMount() {
+    let result = this.fetchInitialSettings();
+    this.props.updateInitialState( result );
+  }
+
   render() {
     return (
       <Provider store={store}>
@@ -34,4 +59,7 @@ export default class App extends Component {
       </Provider>
     );
   }
+
 }
+
+export default connect(null, { updateInitialState })(App);

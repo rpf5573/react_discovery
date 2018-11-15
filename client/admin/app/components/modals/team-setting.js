@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import _ from 'lodash';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Alert, Input, Label, TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
 import { closeModal } from '../../actions';
+import 'whatwg-fetch';
 
 class TeamSettingModal extends React.Component {
 
@@ -14,8 +15,11 @@ class TeamSettingModal extends React.Component {
       backdrop: true,
       passwords: [11, 12, 13, 14, 15, 16, 17, 18, 19, 110, 111, 112, 113, 114]
     };
-
     this.close = this.close.bind(this);
+  }
+
+  componentDidMount() {
+    
   }
 
   close() {

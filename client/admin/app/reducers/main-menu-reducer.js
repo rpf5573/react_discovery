@@ -1,11 +1,6 @@
 import { OPEN_MODAL, TOGGLE_MENU_BTNS, CLOSE_MODAL } from '../actions/types';
 
-const initialState = {
-  items: [],
-  item: {}
-};
-
-export default function(state = initialState, action) {
+export default function(state, action) {
   switch( action.type ) {
     case OPEN_MODAL :
       return Object.assign({}, state, {
