@@ -4,18 +4,12 @@ import _ from 'lodash';
 
 // react & redux
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import { Provider, connect } from 'react-redux';
-import store from '../store';
+import { Provider } from 'react-redux';
 
 // components
-import { Container, Row, Col } from 'reactstrap';
 import MainMenu from './main-menu';
 import MainBoard from './main-board';
 import Modals from './modals';
-
-// actions
-import { updateInitialState } from '../actions/initial-state-actions';
 
 // css
 import 'bootstrap/dist/css/bootstrap.css';
@@ -34,19 +28,17 @@ class App extends Component {
       Object.assign(result, {key: value});
     });
 
-    console.log( 'result : ', result );
-
     return result;
   }
 
   componentDidMount() {
-    let result = this.fetchInitialSettings();
-    this.props.updateInitialState( result );
+    // let result = this.fetchInitialSettings();
+    // this.props.updateInitialState( result );
   }
 
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={this.props.store}>
         <div className="page">
           <div className="sidebar">
             <MainMenu></MainMenu>
@@ -62,4 +54,4 @@ class App extends Component {
 
 }
 
-export default connect(null, { updateInitialState })(App);
+export default App;
