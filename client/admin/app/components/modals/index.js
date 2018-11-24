@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TimerModal from './timer';
 import TeamSettingModal from './team-setting';
+import Maps from './maps';
 
 class Modals extends Component {
   state = {  }
@@ -8,7 +8,7 @@ class Modals extends Component {
     return (
       <div className="modals">
         <TeamSettingModal className="modal--team-setting"></TeamSettingModal>
-        <TimerModal className="modal--timer"></TimerModal>
+        <Maps className="modal--maps"></Maps>
       </div>
     );
   }

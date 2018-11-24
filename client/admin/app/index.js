@@ -8,24 +8,13 @@ import configureStore from './store';
 
 async function fetchInitialSettings () {
   let response = await fetch('/admin/state');
-  let json = await response.json();
-  console.log( 'json : ', json );
+  let initialState = await response.json();
 
-  var result = {};
-  _.forEach(json['state'], function(row){
-    let key = row['meta_key'];
-    let value = row['meta_value'];
-    Object.assign(result, { [key]: value});
-  });
-
-  return result;
+  return initialState;
 }
 
 async function firstRender() {
-  let initialState = {
-    meta : await fetchInitialSettings()
-  };
-  console.log( 'initialState : ', initialState );
+  let initialState = await fetchInitialSettings();
   let store = await configureStore(initialState);
   ReactDom.render(
     <App store={store}></App>,

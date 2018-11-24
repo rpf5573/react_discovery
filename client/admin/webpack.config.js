@@ -30,5 +30,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './app/index.html'
     })
-  ]
+  ],
+  devServer: {
+    proxy: {
+      '/admin/' : {
+        target: 'http://localhost:8080',
+        changeOrigin : true
+      }
+    }
+  }
 }

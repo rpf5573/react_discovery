@@ -31,3 +31,6 @@ body {
 .nav-item {
   cursor: pointer;
 }
+input.form-control::placeholder {
+  opacity: 0.25;
+}

@@ -1,5 +1,6 @@
 const path = require('path');
 const config = require('./config.js');
+const multer = require('multer');
 
 // express
 const express = require('express');
@@ -8,25 +9,13 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static('client'));
 
 // mysql
-const mysql = require('mysql');
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'discovery'
-});
-connection.connect(err => {
-  if ( err ) {
-    console.log( 'err : ', err );
-    return err;
-  }
-});
+const pool = require('./database');
 
-// admin route
-app.use(express.static('client'));
-require('./server/admin/routes/adminRoute')(app, config, connection);
+// admin
+require('./server/admin/init')(app, config, path, multer, pool);
 
 // user route
 const PORT = process.env.PORT || 8080;
